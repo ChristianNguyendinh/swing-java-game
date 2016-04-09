@@ -22,6 +22,14 @@ public abstract class Character {
 	public void setHP(int hp) {
 		this.hp = hp;
 	}
+	public boolean isDead() {
+		return hp <= 0;
+	}
+	public void setATK(int newAtk) {
+		atk = newAtk;
+		if (atk <= 0) 
+			atk = 1;
+	}
 	public void check() {
 		//do nothing
 	}
