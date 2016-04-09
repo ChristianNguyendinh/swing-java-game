@@ -19,6 +19,9 @@ public class SpriteScreen extends JFrame {
 	JPanel[][] spriteBoard;
 	private Container place;
 	private GridLayout grid;
+	public players.Player p1 = new players.Player("Player 1");
+
+	public players.Player p2 = new players.Player("Player 2");
 	
 	public SpriteScreen() {
 		place=getContentPane();
@@ -40,7 +43,7 @@ public class SpriteScreen extends JFrame {
 		
 		for(int x=0;x<5;x++){
 			for(int y=0;y<5;y++){
-				spriteBoard[x][y].addMouseListener(new MouseStalker(new GridPoint(x,y), this));
+				spriteBoard[x][y].addMouseListener(new MouseStalker(new GridPoint(x,y), this, p1, p2));
 			}
 		}
 		
