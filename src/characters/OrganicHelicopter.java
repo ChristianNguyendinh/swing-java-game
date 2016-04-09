@@ -1,7 +1,11 @@
 package characters;
 
 public class OrganicHelicopter extends Character {
-
+	public OrganicHelicopter() {
+		hp = atk = staticAtk = 0;
+		speed = 50;
+		name = "Organic Helicopter";
+	}
 	@Override
 	public void attack(Character target) {
 		// TODO Auto-generated method stub
