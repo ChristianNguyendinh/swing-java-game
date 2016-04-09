@@ -1,15 +1,10 @@
 package characters;
 
-public class HappyJoker extends Character{
-	public HappyJoker() {
-		hp = atk = staticAtk = staticHP = 0;
-		speed = 15;
-		name = "Happy Joker";
-	}
+public class HappyJoker extends Character {
 	@Override
-	public int getDmg() {
+	public String toString() {
 		// TODO Auto-generated method stub
-		return 0;
+		return "Joker from the movie, only reloaded with happiness.";
 	}
 
 	@Override
@@ -19,9 +14,8 @@ public class HappyJoker extends Character{
 	}
 
 	@Override
-	public String toString() {
+	public int getDmg() {
 		// TODO Auto-generated method stub
-		return null;
+		return 0;
 	}
-
 }
