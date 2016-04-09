@@ -30,7 +30,11 @@ public class Player {
 	}
 	
 	public void incrementAtk(Character character) {
-		
+		character.setATK(character.getATK() + 1);
+	}
+	
+	public void incrementHP(Character character) {
+		character.setHP(character.getHP() + 1);
 	}
 	
 	public String action(Player otherPlayer, Character yours, Character theirs) {
