@@ -18,12 +18,6 @@ public class RottingTomatoes extends Character {
 	}
 
 	@Override
-	public String getImage() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
 	public int getDmg() {
 		// TODO Auto-generated method stub
 		return 0;

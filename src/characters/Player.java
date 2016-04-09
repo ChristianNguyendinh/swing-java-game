@@ -7,15 +7,8 @@ public class Player extends Character {
 	public Player() {
 		hp = atk = staticAtk = staticHP = 0;
 		speed = 30;
-		name = JOptionPane.showInputDialog("Enter the name for " + getClass());
+		name = "Player";
 	}
-	
-	@Override
-	public String getImage() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
 
 	@Override
 	public String toString() {

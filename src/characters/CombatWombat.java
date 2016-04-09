@@ -6,12 +6,6 @@ public class CombatWombat extends Character {
 		speed = 30;
 		name = "Combat Wombat";
 	}
-	@Override
-	public String getImage() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
 
 	@Override
 	public String toString() {

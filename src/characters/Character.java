@@ -8,6 +8,7 @@ public abstract class Character {
 	int staticHP;
 	int speed;
 	String name;
+	String path;
 	
 	public int getHP() {
 		return hp;
@@ -34,9 +35,16 @@ public abstract class Character {
 	public void setATK(int atk) {
 		this.atk = atk;
 	}
-	public abstract int getDmg();
 	
-	public abstract String getImage();
+	public void setImage(String path) {
+		this.path = path;
+	}
+	
+	public String getImage() {
+		return path;
+	}
+	
+	public abstract int getDmg();
 	
 	public abstract String toString();
 	

@@ -43,7 +43,7 @@ public class BattleScreen extends JFrame {
 				battleBoard[x][y].addMouseListener(new BATTLEMouseStalker(new GridPoint(x,y), this));
 			}
 		}
-
+		setBoard(characters1, characters2);
 	}
 	
 	private void setBoard(ArrayList<Character> characters1, ArrayList<Character> characters2) {
