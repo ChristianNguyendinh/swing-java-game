@@ -45,25 +45,25 @@ public class Player {
 		
 		if(yours instanceof CombatWombat) {
 			theirs.setHP(theirs.getHP() - yours.getATK());
-			return name + "'s" + yours.getName() + " attacked " + theirs.toString() + "for " + yours.getATK();
+			return name + "'s " + yours.getName() + " attacked " + " " + otherPlayer.name + "'s " + theirs.getName() + " for " + yours.getATK();
 		} else if(yours instanceof HappyJoker) {
 			theirs.setHP(theirs.getHP() - yours.getATK());
-			return name + "'s" + yours.getName() + " attacked " + theirs.toString() + "for " + yours.getATK();
+			return name + "'s " + yours.getName() + " attacked " + " " + otherPlayer.name + "'s " + theirs.getName() + " for " + yours.getATK();
 		} else if(yours instanceof OrganicHelicopter) {
 			theirs.setHP(theirs.getHP() - yours.getATK());
-			return name + "'s" + yours.getName() + " attacked " + theirs.toString() + "for " + yours.getATK();
+			return name + "'s " + yours.getName() + " attacked " + " " + otherPlayer.name + "'s " + theirs.getName() + " for " + yours.getATK();
 		} else if(yours instanceof characters.Player) {
 			theirs.setHP(theirs.getHP() - yours.getATK());
-			return name + "'s" + yours.getName() + " attacked " + theirs.toString() + "for " + yours.getATK();
+			return theirs.getHP() + name + "'s " + yours.getName() + " attacked " + " " + otherPlayer.name + "'s " + theirs.getName() + " for " + yours.getATK();
 		} else if(yours instanceof RottingTomatoes) {
 			theirs.setHP(theirs.getHP() - yours.getATK());
-			return name + "'s" + yours.getName() + " attacked " + theirs.toString() + "for " + yours.getATK();
+			return name + "'s " + yours.getName() + " attacked " + " " + otherPlayer.name + "'s " + theirs.getName() + " for " + yours.getATK();
 		} else if(yours instanceof TaxCollector) {
 			theirs.setHP(theirs.getHP() - yours.getATK());
-			return name + "'s" + yours.getName() + " attacked " + theirs.toString() + "for " + yours.getATK();
+			return name + "'s " + yours.getName() + " attacked " + " " + otherPlayer.name + "'s " + theirs.getName() + " for " + yours.getATK();
 		} else if(yours instanceof WeatherVane) {
 			theirs.setHP(theirs.getHP() - yours.getATK());
-			return name + "'s" + yours.getName() + " attacked " + theirs.toString() + "for " + yours.getATK();
+			return name + "'s " + yours.getName() + " attacked " + " " + otherPlayer.name + "'s " + theirs.getName() + " for " + yours.getATK();
 		}
 		return "";
 	}

@@ -4,7 +4,6 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.Toolkit;
-import java.awt.event.InputEvent;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.image.BufferedImage;
@@ -20,43 +19,47 @@ import javax.swing.UIManager;
 import javax.swing.border.Border;
 import javax.swing.event.MouseInputAdapter;
 
-import characters.*;
-import characters.Character;
 
+public class BATTLEMouseStalker extends MouseInputAdapter{
+	private BattleScreen grid;
+	private JPanel panel;	
+	private GridPoint loc;
+	
+	private static GridPoint green=null;
+	private static GridPoint red=null;
+	
+	private static double clicked=0;
+	
+	
+	//ArrayList<Player> players;
 
-public class MouseStalker extends MouseInputAdapter{
-	private SpriteScreen grid;
-	private JPanel panel;	private GridPoint loc;
-
-	public MouseStalker(GridPoint myLoc, SpriteScreen g1){
+	public BATTLEMouseStalker(GridPoint myLoc, BattleScreen g1){
 		loc=myLoc;
 		grid=g1;
 		panel=grid.getBoard(loc.getRow(), loc.getCol());
 	}
 	public void mouseClicked(MouseEvent e){
-		
-		if((e.getModifiers() & InputEvent.BUTTON3_MASK) == InputEvent.BUTTON3_MASK)
+
+			
+		if (clicked%2==0 && clicked!=1) {
 			grid.getBoard(loc.getRow(), loc.getCol()).setBackground(Color.GREEN);
-		else {
-			players.Player p1 = new players.Player("Player 1");
-			players.Player p2 = new players.Player("Player 2");
-			Character c = new characters.Player();
-			c.setStaticATK(30);
-			Character d = new WeatherVane();
-			d.setHP(100);
-			p1.addCharacter(c);
-			p2.addCharacter(d);
-			System.out.println(p1.action(p2, p1.getCharacter(0), p2.getCharacter(0)));
-			grid.getBoard(loc.getRow(), loc.getCol()).setBackground(Color.BLUE);
-			grid.getBoard(loc.getRow(), loc.getCol()).setToolTipText("HP:" + d.getHP());
+			green=loc;
+			clicked++;
+		} else {
+			grid.getBoard(loc.getRow(), loc.getCol()).setBackground(Color.RED);
+			red=loc;
+			
+			grid.getBoard(green.getRow(), green.getCol()).setBackground(Color.LIGHT_GRAY);
+			grid.getBoard(red.getRow(), red.getCol()).setBackground(Color.LIGHT_GRAY);
+			green=null;
+			red=null;
+			clicked++;
 		}
+			/*
+			 * 
+			 */
+
 		
-		/*
-		 * 
-		 */
-		if (loc.getRow()==1 && loc.getCol()==3) {
-			//System.exit(0);
-		}
 	}
 	public void mouseDragged(MouseEvent e){
 		
