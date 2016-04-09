@@ -3,8 +3,11 @@ package gui;
 import java.awt.Color;
 import java.awt.Container;
 import java.awt.GridLayout;
+import java.awt.Toolkit;
 
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 
@@ -26,8 +29,8 @@ public class SpriteScreen extends JFrame {
 			}
 		}
 		
-		for (int k=0; k<5; k++) {
-			for (int i=0; i<5; i++) {
+		for (int i=0; i<5; i++) {
+			for (int k=0; k<5; k++) {
 				place.add(spriteBoard[k][i]);
 			}
 		}
@@ -36,13 +39,25 @@ public class SpriteScreen extends JFrame {
 			for(int y=0;y<5;y++){
 				spriteBoard[x][y].addMouseListener(new MouseStalker(new GridPoint(x,y), this));
 				
+				
+				/*
 				if (x==1 && y==3) {
-					spriteBoard[x][y].setBackground(Color.CYAN);
+					//ImagePanel panel = new ImagePanel(new ImageIcon("/Users/christian/Documents/workspace/bitcamp-2016/pics/Dev1.png").getImage());
+					//spriteBoard[x][y].setBackground(Color.GREEN);
+					spriteBoard[x][y].setBackground(Color.RED);
+					spriteBoard[1][3].setToolTipText("ASDFASDFDSFADSF");
 				}
 				if (x==1 && y==2) {
 					spriteBoard[x][y].setBackground(Color.GREEN);
 				}
 				if (x==2 && y==2) {
+					spriteBoard[x][y].setBackground(Color.BLUE);
+				}*/
+				if(x == 1) {
+					spriteBoard[x][y].setBackground(Color.RED);
+				}
+				
+				if(y == 1) {
 					spriteBoard[x][y].setBackground(Color.BLUE);
 				}
 			}
@@ -90,3 +105,4 @@ public class SpriteScreen extends JFrame {
 	}
 	
 }
+

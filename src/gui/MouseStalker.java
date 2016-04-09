@@ -20,6 +20,9 @@ import javax.swing.UIManager;
 import javax.swing.border.Border;
 import javax.swing.event.MouseInputAdapter;
 
+import characters.*;
+import characters.Character;
+
 
 public class MouseStalker extends MouseInputAdapter{
 	private SpriteScreen grid;
@@ -34,8 +37,11 @@ public class MouseStalker extends MouseInputAdapter{
 		
 		if((e.getModifiers() & InputEvent.BUTTON3_MASK) == InputEvent.BUTTON3_MASK)
 			grid.getBoard(loc.getRow(), loc.getCol()).setBackground(Color.GREEN);
-		else
+		else {
+			Character c = new Player();
+			System.out.println(c.toString());
 			grid.getBoard(loc.getRow(), loc.getCol()).setBackground(Color.BLUE);
+		}
 		
 		/*
 		 * 
