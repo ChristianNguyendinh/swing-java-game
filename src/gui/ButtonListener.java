@@ -12,6 +12,9 @@ import javax.swing.JButton;
 
 import javax.swing.JPanel;
 
+import characters.*;
+import characters.Character;
+
 public class ButtonListener implements ActionListener {
 
 	private JButton button;
@@ -23,8 +26,9 @@ public class ButtonListener implements ActionListener {
 	private boolean plusATK;
 
 	private boolean minusATK;
+	private characters.Character c;
 
-	public ButtonListener(boolean hpUP, boolean hpDOWN, boolean atkUP, boolean atkDOWN) {
+	public ButtonListener(boolean hpUP, boolean hpDOWN, boolean atkUP, boolean atkDOWN, characters.Character c) {
 
 		plusHP = hpUP;
 
@@ -33,6 +37,8 @@ public class ButtonListener implements ActionListener {
 		plusATK = atkUP;
 
 		minusATK = atkDOWN;
+		
+		this.c = c;
 
 	}
 

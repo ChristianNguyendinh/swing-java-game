@@ -82,6 +82,18 @@ public class MouseStalker extends MouseInputAdapter {
 				grid.getBoard(loc.getRow(), loc.getCol()).setBackground(Color.RED);
 				grid.getBoard(loc.getRow(), loc.getCol()).setToolTipText("Name: " + c.getName() +
 						"\nATK: " + c.getATK() + "\nHP:" + c.getHP());
+				
+				StatButtons stats = new StatButtons(c);
+				
+				stats.setTitle("Set Stats for Unit");
+
+				stats.setResizable(false);
+
+				stats.setSize(200, 120);
+
+				stats.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+
+				stats.setVisible(true);
 			} else {
 				Character c = new characters.Player();
 				c.setImage(grid.getBoard(loc.getRow(), loc.getCol()).getName());
@@ -89,6 +101,18 @@ public class MouseStalker extends MouseInputAdapter {
 				grid.getBoard(loc.getRow(), loc.getCol()).setBackground(Color.BLUE);
 				grid.getBoard(loc.getRow(), loc.getCol()).setToolTipText("Name: " + c.getName() +
 						"\nATK: " + c.getATK() + "\nHP:" + c.getHP());
+				
+				StatButtons stats = new StatButtons(c);
+				
+				stats.setTitle("Set Stats for Unit");
+
+				stats.setResizable(false);
+
+				stats.setSize(200, 120);
+
+				stats.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+				stats.setVisible(true);
 			}
 			if(clicked == 5) {
 				JOptionPane.showMessageDialog(null, "Player 2 Pick Now");

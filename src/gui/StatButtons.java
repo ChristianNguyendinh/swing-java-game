@@ -14,6 +14,9 @@ import javax.swing.JPanel;
 
 import javax.swing.JRootPane;
 
+import characters.*;
+import characters.Character;
+
 public class StatButtons extends JFrame {
 
 	private JPanel panel1;
@@ -34,7 +37,7 @@ public class StatButtons extends JFrame {
 
 	private Container c;
 
-	public StatButtons() {
+	public StatButtons(characters.Character character) {
 
 		c = getContentPane();
 
@@ -54,13 +57,13 @@ public class StatButtons extends JFrame {
 
 		minusATK = new JButton("-");
 
-		plusHP.addActionListener(new ButtonListener(true, false, false, false));
+		plusHP.addActionListener(new ButtonListener(true, false, false, false, character));
 
-		minusHP.addActionListener(new ButtonListener(false, true, false, false));
+		minusHP.addActionListener(new ButtonListener(false, true, false, false, character));
 
-		plusATK.addActionListener(new ButtonListener(false, false, true, false));
+		plusATK.addActionListener(new ButtonListener(false, false, true, false, character));
 
-		minusATK.addActionListener(new ButtonListener(false, false, false, true));
+		minusATK.addActionListener(new ButtonListener(false, false, false, true, character));
 
 		panel1.add(plusHP);
 
@@ -82,7 +85,9 @@ public class StatButtons extends JFrame {
 
 	public static void main(String[] args) {
 
-		StatButtons stats = new StatButtons();
+		/*StatButtons stats = new StatButtons();
+		
+		stats.setTitle("Set Stats for Unit");
 
 		stats.setResizable(false);
 
@@ -91,6 +96,7 @@ public class StatButtons extends JFrame {
 		stats.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		stats.setVisible(true);
+		*/
 
 	}
 
