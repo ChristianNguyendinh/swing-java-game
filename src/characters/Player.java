@@ -1,7 +1,15 @@
 package characters;
 
+import javax.swing.JOptionPane;
+
 public class Player extends Character {
 
+	public Player() {
+		hp = atk = staticAtk = staticHP = 0;
+		speed = 30;
+		name = JOptionPane.showInputDialog("Enter the name for " + getClass());
+	}
+	
 	@Override
 	public String getImage() {
 		// TODO Auto-generated method stub
