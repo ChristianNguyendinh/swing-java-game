@@ -37,7 +37,7 @@ public class StatButtons extends JFrame {
 
 	private Container c;
 
-	public StatButtons(characters.Character character) {
+	public StatButtons(characters.Character character, players.Player p) {
 
 		c = getContentPane();
 
@@ -57,13 +57,13 @@ public class StatButtons extends JFrame {
 
 		minusATK = new JButton("-");
 
-		plusHP.addActionListener(new ButtonListener(true, false, false, false, character));
+		plusHP.addActionListener(new ButtonListener(true, false, false, false, character, p));
 
-		minusHP.addActionListener(new ButtonListener(false, true, false, false, character));
+		minusHP.addActionListener(new ButtonListener(false, true, false, false, character, p));
 
-		plusATK.addActionListener(new ButtonListener(false, false, true, false, character));
+		plusATK.addActionListener(new ButtonListener(false, false, true, false, character, p));
 
-		minusATK.addActionListener(new ButtonListener(false, false, false, true, character));
+		minusATK.addActionListener(new ButtonListener(false, false, false, true, character, p));
 
 		panel1.add(plusHP);
 
