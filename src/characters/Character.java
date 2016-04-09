@@ -11,7 +11,9 @@ public abstract class Character {
 	String path;
 	boolean ability;
 	boolean bleed;
-	
+	public int getSpeed() {
+		return speed;
+	}
 	public int getHP() {
 		return hp;
 	}

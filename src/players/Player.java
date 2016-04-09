@@ -67,4 +67,19 @@ public class Player {
 		}
 		return "";
 	}
+	
+	public boolean lost() {
+		int totalHP = 0;
+		for (Character current : characters)
+			totalHP += current.getHP();
+		
+		return totalHP == 0;
+	}
+	public int speed() {
+		int totalSpeed = 0;
+		for (Character current : characters)
+			totalSpeed += current.getSpeed();
+		
+		return totalSpeed;
+	}
 }
