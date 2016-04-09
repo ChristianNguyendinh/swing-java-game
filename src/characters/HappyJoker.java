@@ -1,19 +1,6 @@
 package characters;
 
-public class HappyJoker extends Character{
-
-	@Override
-	public int getDmg() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public String getImage() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
+public class HappyJoker extends Character {
 	@Override
 	public void attack(Character target) {
 		// TODO Auto-generated method stub
@@ -23,7 +10,12 @@ public class HappyJoker extends Character{
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub
-		return null;
+		return "Joker from the movie, only reloaded with happiness.";
 	}
 
+	@Override
+	public String getImage() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

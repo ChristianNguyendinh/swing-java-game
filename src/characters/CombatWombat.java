@@ -1,18 +1,17 @@
 package characters;
 
 public class CombatWombat extends Character {
-
+	public CombatWombat() {
+		hp = atk = staticAtk = staticHP = 0;
+		speed = 30;
+		name = "Combat Wombat";
+	}
 	@Override
 	public String getImage() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
-	public void attack(Character target) {
-		// TODO Auto-generated method stub
-		
-	}
 
 	@Override
 	public String toString() {

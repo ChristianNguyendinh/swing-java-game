@@ -1,19 +1,6 @@
 package characters;
 
-public class TaxCollector extends Character{
-
-	@Override
-	public int getDmg() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public String getImage() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
+public class TaxCollector extends Character {
 	@Override
 	public void attack(Character target) {
 		// TODO Auto-generated method stub
@@ -23,7 +10,12 @@ public class TaxCollector extends Character{
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub
-		return null;
+		return "Robin Hood of the Government. Hated by everyone.";
 	}
 
+	@Override
+	public String getImage() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

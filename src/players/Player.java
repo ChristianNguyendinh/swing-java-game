@@ -15,7 +15,7 @@ public class Player {
 	
 	public Player(String name) {
 		this.name = name;
-		totalHP = 30;
+		totalHP = 90;
 		totalATK = 30;
 		myTurn = false;
 		characters = new ArrayList<Character>();
