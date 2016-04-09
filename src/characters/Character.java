@@ -1,18 +1,18 @@
 package characters;
 
 public abstract class Character {
-	Integer hp;
-	Integer atk;
-	Integer staticAtk;
-	Integer speed;
+	int hp;
+	int atk;
+	int staticAtk;
+	int speed;
 	String name;
 	
 	public int getHP() {
-		return hp.intValue();
+		return hp;
 	}
 	
 	public int getATK() {
-		return atk.intValue();
+		return atk;
 	}
 	
 	public String getName() {
@@ -24,6 +24,11 @@ public abstract class Character {
 	
 	public void setStaticATK(int atk) {
 		this.staticAtk = atk;
+		this.atk = atk;
+	}
+	
+	public void setATK(int atk) {
+		this.atk = atk;
 	}
 	public abstract int getDmg();
 	

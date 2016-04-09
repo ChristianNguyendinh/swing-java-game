@@ -38,9 +38,17 @@ public class MouseStalker extends MouseInputAdapter{
 		if((e.getModifiers() & InputEvent.BUTTON3_MASK) == InputEvent.BUTTON3_MASK)
 			grid.getBoard(loc.getRow(), loc.getCol()).setBackground(Color.GREEN);
 		else {
-			Character c = new Player();
-			System.out.println(c.toString());
+			players.Player p1 = new players.Player("Player 1");
+			players.Player p2 = new players.Player("Player 2");
+			Character c = new characters.Player();
+			c.setStaticATK(30);
+			Character d = new WeatherVane();
+			d.setHP(100);
+			p1.addCharacter(c);
+			p2.addCharacter(d);
+			System.out.println(p1.action(p2, p1.getCharacter(0), p1.getCharacter(0)));
 			grid.getBoard(loc.getRow(), loc.getCol()).setBackground(Color.BLUE);
+			grid.getBoard(loc.getRow(), loc.getCol()).setToolTipText("HP:" + d.getHP());
 		}
 		
 		/*
