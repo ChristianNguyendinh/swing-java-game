@@ -2,18 +2,11 @@
 package characters;
 
 public abstract class Character {
-<<<<<<< HEAD
 	int hp;
 	int atk;
 	int staticAtk;
+	int staticHP;
 	int speed;
-=======
-	Integer hp;
-	Integer atk;
-	Integer staticAtk;
-	Integer staticHP;
-	Integer speed;
->>>>>>> 349c7553b9157cf9d2d65993f5392957567797dd
 	String name;
 	
 	public int getHP() {

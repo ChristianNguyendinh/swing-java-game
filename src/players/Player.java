@@ -44,25 +44,25 @@ public class Player {
 	public String action(Player otherPlayer, Character yours, Character theirs) {
 		
 		if(yours instanceof CombatWombat) {
-			yours.attack(theirs);
+			theirs.setHP(theirs.getHP() - yours.getATK());
 			return name + "'s" + yours.getName() + " attacked " + theirs.toString() + "for " + yours.getATK();
 		} else if(yours instanceof HappyJoker) {
-			yours.attack(theirs);
+			theirs.setHP(theirs.getHP() - yours.getATK());
 			return name + "'s" + yours.getName() + " attacked " + theirs.toString() + "for " + yours.getATK();
 		} else if(yours instanceof OrganicHelicopter) {
-			yours.attack(theirs);
+			theirs.setHP(theirs.getHP() - yours.getATK());
 			return name + "'s" + yours.getName() + " attacked " + theirs.toString() + "for " + yours.getATK();
 		} else if(yours instanceof characters.Player) {
-			yours.attack(theirs);
+			theirs.setHP(theirs.getHP() - yours.getATK());
 			return name + "'s" + yours.getName() + " attacked " + theirs.toString() + "for " + yours.getATK();
 		} else if(yours instanceof RottingTomatoes) {
-			yours.attack(theirs);
+			theirs.setHP(theirs.getHP() - yours.getATK());
 			return name + "'s" + yours.getName() + " attacked " + theirs.toString() + "for " + yours.getATK();
 		} else if(yours instanceof TaxCollector) {
-			yours.attack(theirs);
+			theirs.setHP(theirs.getHP() - yours.getATK());
 			return name + "'s" + yours.getName() + " attacked " + theirs.toString() + "for " + yours.getATK();
 		} else if(yours instanceof WeatherVane) {
-			yours.attack(theirs);
+			theirs.setHP(theirs.getHP() - yours.getATK());
 			return name + "'s" + yours.getName() + " attacked " + theirs.toString() + "for " + yours.getATK();
 		}
 		return "";
