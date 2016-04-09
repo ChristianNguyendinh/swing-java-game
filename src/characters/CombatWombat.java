@@ -17,7 +17,13 @@ public class CombatWombat extends Character {
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub
-		return "A wombat that graduating at the top of its class in combat readiness.";
+		return "A wombat graduating at the top of its class in combat readiness";
+	}
+
+	@Override
+	public int getDmg() {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 }

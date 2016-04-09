@@ -3,6 +3,7 @@ package characters;
 public abstract class Character {
 	Integer hp;
 	Integer atk;
+	Integer staticAtk;
 	Integer speed;
 	String name;
 	
@@ -21,9 +22,10 @@ public abstract class Character {
 		this.hp = hp;
 	}
 	
-	public void setATK(int atk) {
-		this.atk = atk;
+	public void setStaticATK(int atk) {
+		this.staticAtk = atk;
 	}
+	public abstract int getDmg();
 	
 	public abstract String getImage();
 	

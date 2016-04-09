@@ -30,7 +30,7 @@ public class Player {
 	}
 	
 	public void incrementAtk(Character character) {
-		character.setATK(character.getATK() + 1);
+		character.setStaticATK(character.getATK() + 1);
 	}
 	
 	public void incrementHP(Character character) {

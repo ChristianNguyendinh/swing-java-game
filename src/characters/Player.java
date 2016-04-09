@@ -20,4 +20,10 @@ public class Player extends Character {
 		return "Standard vanilla player for players.";
 	}
 
+	@Override
+	public int getDmg() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 }
