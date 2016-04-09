@@ -1,7 +1,10 @@
+package gui;
+
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.Toolkit;
+import java.awt.event.InputEvent;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.image.BufferedImage;
@@ -29,7 +32,10 @@ public class MouseStalker extends MouseInputAdapter{
 	}
 	public void mouseClicked(MouseEvent e){
 		
-		grid.getBoard(loc.getRow(), loc.getCol()).setBackground(Color.GREEN);
+		if((e.getModifiers() & InputEvent.BUTTON3_MASK) == InputEvent.BUTTON3_MASK)
+			grid.getBoard(loc.getRow(), loc.getCol()).setBackground(Color.GREEN);
+		else
+			grid.getBoard(loc.getRow(), loc.getCol()).setBackground(Color.BLUE);
 		
 		/*
 		 * 

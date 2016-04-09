@@ -30,7 +30,7 @@ public class SwingControlDemo {
       headerLabel = new JLabel("", JLabel.CENTER);        
       statusLabel = new JLabel("",JLabel.CENTER);    
 
-      statusLabel.setSize(350,100);
+      statusLabel.setSize(300,300);
 
       controlPanel = new JPanel();
       controlPanel.setLayout(new FlowLayout());

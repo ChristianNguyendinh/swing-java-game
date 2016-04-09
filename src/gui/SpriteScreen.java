@@ -1,3 +1,5 @@
+package gui;
+
 import java.awt.Color;
 import java.awt.Container;
 import java.awt.GridLayout;
@@ -36,6 +38,12 @@ public class SpriteScreen extends JFrame {
 				
 				if (x==1 && y==3) {
 					spriteBoard[x][y].setBackground(Color.CYAN);
+				}
+				if (x==1 && y==2) {
+					spriteBoard[x][y].setBackground(Color.GREEN);
+				}
+				if (x==2 && y==2) {
+					spriteBoard[x][y].setBackground(Color.BLUE);
 				}
 			}
 		}
