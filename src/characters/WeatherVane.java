@@ -17,6 +17,9 @@ public class WeatherVane extends Character {
 	@Override
 	public int getDmg() {
 		// TODO Auto-generated method stub
-		return 0;
+		return randomDmg(-1, 4);
+	}
+	public void check() {
+		setHP(getHP() + 2);
 	}
 }

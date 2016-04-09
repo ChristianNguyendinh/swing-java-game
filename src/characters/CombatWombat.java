@@ -21,8 +21,15 @@ public class CombatWombat extends Character {
 
 	@Override
 	public int getDmg() {
-		// TODO Auto-generated method stub
-		return 0;
+		return randomDmg(-2, 5);
+	}
+	//when CombatWombats are in an pinch, their attack goes up
+	public void check() {
+		setBleed();
+		if (hp <= staticAtk / 2 && !ability) {
+			atk += 5;
+			ability = true;
+		}
 	}
 
 }

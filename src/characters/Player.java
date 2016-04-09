@@ -17,8 +17,11 @@ public class Player extends Character {
 
 	@Override
 	public int getDmg() {
-		// TODO Auto-generated method stub
-		return 0;
+		return atk;
 	}
-
+	//player's attack doesn't get affected
+	public void check() {
+		setBleed();
+		atk = staticAtk;
+	}
 }
