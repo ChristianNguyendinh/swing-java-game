@@ -45,7 +45,7 @@ public class ButtonListener implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 
 		if (plusHP) {
-
+			
 		} else if (minusHP) {
 
 		} else if (plusATK) {
