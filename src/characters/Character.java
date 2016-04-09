@@ -5,6 +5,7 @@ public abstract class Character {
 	Integer hp;
 	Integer atk;
 	Integer staticAtk;
+	Integer staticHP;
 	Integer speed;
 	String name;
 	
@@ -22,15 +23,15 @@ public abstract class Character {
 	public void setHP(int hp) {
 		this.hp = hp;
 	}
-	
+	public void check() {
+		//do nothing
+	}
 	public void setStaticATK(int atk) {
 		this.staticAtk = atk;
 	}
 	public abstract int getDmg();
 	
 	public abstract String getImage();
-	
-	public abstract void attack(Character target);
 	
 	public abstract String toString();
 	

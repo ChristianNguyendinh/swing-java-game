@@ -13,7 +13,7 @@ public class Player {
 	
 	public Player(String name) {
 		this.name = name;
-		totalHP = 30;
+		totalHP = 90;
 		totalATK = 30;
 		myTurn = false;
 		characters = new Character[6];
@@ -38,10 +38,23 @@ public class Player {
 	}
 	
 	public String action(Player otherPlayer, Character yours, Character theirs) {
-		theirs.setHP(theirs.getHP() - yours.getATK());
 		//Abilities
-		if(yours instanceof Character) {
-			return "String ";
+		yours.attack(theirs);
+		yours.attack(theirs);
+		if(yours instanceof CombatWombat) {
+			return name + "'s + yours.getName() + attacked " + theirs.toString();
+		} else if(yours instanceof HappyJoker) {
+			return name + "'s + yours.getName() + attacked " + theirs.toString();
+		} else if(yours instanceof OrganicHelicopter) {
+			return name + "'s + yours.getName() + attacked " + theirs.toString();
+		} else if(yours instanceof characters.Player) {
+			return name + "'s + yours.getName() + attacked " + theirs.toString();
+		} else if(yours instanceof RottingTomatoes) {
+			return name + "'s + yours.getName() + attacked " + theirs.toString();
+		} else if(yours instanceof CombatWombat) {
+			return name + "'s + yours.getName() + attacked " + theirs.toString();
+		} else if(yours instanceof CombatWombat) {
+			return name + "'s + yours.getName() + attacked " + theirs.toString();
 		}
 		return "";
 	}
