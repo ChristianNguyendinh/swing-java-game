@@ -11,7 +11,7 @@ public class Player {
 	private int totalHP;
 	private int totalATK;
 	private boolean myTurn;
-	private ArrayList<Character> characters;
+	public ArrayList<Character> characters;
 	
 	public Player(String name) {
 		this.name = name;
