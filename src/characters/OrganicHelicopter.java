@@ -19,4 +19,10 @@ public class OrganicHelicopter extends Character {
 		return null;
 	}
 
+	@Override
+	public int getDmg() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 }
