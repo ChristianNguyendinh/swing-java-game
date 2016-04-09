@@ -8,11 +8,6 @@ public class Player extends Character {
 		return null;
 	}
 
-	@Override
-	public void attack(Character target) {
-		// TODO Auto-generated method stub
-		
-	}
 
 	@Override
 	public String toString() {

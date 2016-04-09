@@ -2,7 +2,7 @@ package characters;
 
 public class CombatWombat extends Character {
 	public CombatWombat() {
-		hp = atk = staticAtk = 0;
+		hp = atk = staticAtk = staticHP = 0;
 		speed = 30;
 		name = "Combat Wombat";
 	}
@@ -12,11 +12,6 @@ public class CombatWombat extends Character {
 		return null;
 	}
 
-	@Override
-	public void attack(Character target) {
-		// TODO Auto-generated method stub
-		
-	}
 
 	@Override
 	public String toString() {
