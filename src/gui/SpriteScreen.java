@@ -82,7 +82,7 @@ public class SpriteScreen extends JFrame {
 		setSprite("pics/OldMan.jpg", 2, 3);
 		spriteBoard[2][3].setName("pics/OldMan.jpg");
 		setSprite("pics/PolymorphicBST.jpg", 2, 4);
-		spriteBoard[2][4].setName("pics/PolymorphicBST");
+		spriteBoard[2][4].setName("pics/PolymorphicBST.jpg");
 		
 		setSprite("pics/RacoonMan.jpg", 3, 0);
 		spriteBoard[3][0].setName("pics/RacoonMan.jpg");

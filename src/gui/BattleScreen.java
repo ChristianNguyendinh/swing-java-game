@@ -50,41 +50,77 @@ public class BattleScreen extends JFrame {
 		
 		String fileName=characters1.get(0).getImage();
 		setSprite(fileName, 0, 0);
+		battleBoard[0][0].setToolTipText("Name: " + characters1.get(0).getName() +
+				"\nATK: " + characters1.get(0).getATK() + "\nHP:" + 
+				characters1.get(0).getHP());
 		
 		fileName=characters1.get(1).getImage();
 		setSprite(fileName, 1, 0);
+		battleBoard[1][0].setToolTipText("Name: " + characters1.get(1).getName() +
+				"\nATK: " + characters1.get(1).getATK() + "\nHP:" + 
+				characters1.get(1).getHP());
 		
 		fileName=characters1.get(2).getImage();
 		setSprite(fileName, 2, 0);
+		battleBoard[2][0].setToolTipText("Name: " + characters1.get(2).getName() +
+				"\nATK: " + characters1.get(2).getATK() + "\nHP:" + 
+				characters1.get(2).getHP());
 		
 		fileName=characters1.get(3).getImage();
 		setSprite(fileName, 0, 1);
+		battleBoard[0][1].setToolTipText("Name: " + characters1.get(3).getName() +
+				"\nATK: " + characters1.get(3).getATK() + "\nHP:" + 
+				characters1.get(3).getHP());
 		
 		fileName=characters1.get(4).getImage();
 		setSprite(fileName, 1, 1);
+		battleBoard[1][1].setToolTipText("Name: " + characters1.get(4).getName() +
+				"\nATK: " + characters1.get(4).getATK() + "\nHP:" + 
+				characters1.get(4).getHP());
 		
 		fileName=characters1.get(5).getImage();
 		setSprite(fileName, 2, 1);
+		battleBoard[2][1].setToolTipText("Name: " + characters1.get(5).getName() +
+				"\nATK: " + characters1.get(5).getATK() + "\nHP:" + 
+				characters1.get(5).getHP());
 		
 		/*PLAYER 1 SET*/
 		
 		fileName=characters2.get(0).getImage();
 		setSprite(fileName, 0, 3);
+		battleBoard[0][3].setToolTipText("Name: " + characters2.get(0).getName() +
+				"\nATK: " + characters2.get(0).getATK() + "\nHP:" + 
+				characters2.get(0).getHP());
 		
 		fileName=characters2.get(1).getImage();
 		setSprite(fileName, 1, 3);
+		battleBoard[1][3].setToolTipText("Name: " + characters2.get(1).getName() +
+				"\nATK: " + characters2.get(1).getATK() + "\nHP:" + 
+				characters2.get(1).getHP());
 		
 		fileName=characters2.get(2).getImage();
 		setSprite(fileName, 2, 3);
+		battleBoard[2][3].setToolTipText("Name: " + characters2.get(2).getName() +
+				"\nATK: " + characters2.get(2).getATK() + "\nHP:" + 
+				characters2.get(2).getHP());
 		
 		fileName=characters2.get(3).getImage();
 		setSprite(fileName, 0, 4);
+		battleBoard[0][4].setToolTipText("Name: " + characters2.get(3).getName() +
+				"\nATK: " + characters2.get(3).getATK() + "\nHP:" + 
+				characters2.get(3).getHP());
 		
 		fileName=characters2.get(4).getImage();
 		setSprite(fileName, 1, 4);
+		battleBoard[1][4].setToolTipText("Name: " + characters2.get(4).getName() +
+				"\nATK: " + characters2.get(4).getATK() + "\nHP:" + 
+				characters2.get(4).getHP());
 		
 		fileName=characters2.get(5).getImage();
 		setSprite(fileName, 2, 4);
+		battleBoard[2][4].setToolTipText("Name: " + characters2.get(5).getName() +
+				"\nATK: " + characters2.get(5).getATK() + "\nHP:" + 
+				characters2.get(5).getHP());
 		
 	}
 

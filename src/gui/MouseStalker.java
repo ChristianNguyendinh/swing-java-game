@@ -27,7 +27,7 @@ import javax.imageio.ImageIO;
 import javax.swing.BorderFactory;
 
 import javax.swing.JFrame;
-
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import javax.swing.UIManager;
@@ -70,42 +70,41 @@ public class MouseStalker extends MouseInputAdapter {
 
 	public void mouseClicked(MouseEvent e) {
 
-		if ((e.getModifiers() & InputEvent.BUTTON3_MASK) == InputEvent.BUTTON3_MASK)
+		if ((e.getModifiers() & InputEvent.BUTTON3_MASK) == InputEvent.BUTTON3_MASK) {
 
-			grid.getBoard(loc.getRow(), loc.getCol()).setBackground(Color.GREEN);
+			grid.getBoard(loc.getRow(), loc.getCol()).setBackground(Color.WHITE);
 
-		else {
-
-			Character c = new characters.Player();
-			c.setImage(grid.getBoard(loc.getRow(), loc.getCol()).getName());
-			pTurn.addCharacter(c);
-
-			grid.getBoard(loc.getRow(), loc.getCol()).setBackground(colour);
-		}
-
-		/*
-		
-		* 
-		
-		*/
-
-		if (loc.getRow() == 1 && loc.getCol() == 3) {
-
-			// System.exit(0);
-
+		} else {
+			if (clicked >= 6) { 
+				Character c = new characters.Player();
+				c.setImage(grid.getBoard(loc.getRow(), loc.getCol()).getName());
+				p1.addCharacter(c);
+				grid.getBoard(loc.getRow(), loc.getCol()).setBackground(Color.RED);
+				grid.getBoard(loc.getRow(), loc.getCol()).setToolTipText("Name: " + c.getName() +
+						"\nATK: " + c.getATK() + "\nHP:" + c.getHP());
+			} else {
+				Character c = new characters.Player();
+				c.setImage(grid.getBoard(loc.getRow(), loc.getCol()).getName());
+				p2.addCharacter(c);
+				grid.getBoard(loc.getRow(), loc.getCol()).setBackground(Color.BLUE);
+				grid.getBoard(loc.getRow(), loc.getCol()).setToolTipText("Name: " + c.getName() +
+						"\nATK: " + c.getATK() + "\nHP:" + c.getHP());
+			}
+			if(clicked == 5) {
+				JOptionPane.showMessageDialog(null, "Player 2 Pick Now");
+			}
 		}
 
 		clicked++;
-		
-		if (clicked == 6) {
+		/*
+		if (clicked > 6) {
 			colour = Color.GREEN;
 			pTurn = p2;
-		}
+		}*/
 
 		if (clicked == 12) {
 
 			grid.setVisible(false);
-			p2 = new players.Player("p2");
 			launchBattle(p1.characters, p2.characters);
 
 		}
