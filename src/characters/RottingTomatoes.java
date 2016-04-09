@@ -8,7 +8,7 @@ public class RottingTomatoes extends Character {
 		atk = 0; 
 		hp = 0; 
 		staticAtk = 0; 
-		name = "Rotten Tomatoes";
+		name = "Rotting Tomatoes";
 	}
 	
 	@Override
@@ -20,7 +20,14 @@ public class RottingTomatoes extends Character {
 	@Override
 	public int getDmg() {
 		// TODO Auto-generated method stub
-		return 0;
+		return 1;
 	}
-
+	//when rotting tomatoes are in a pinch, they lose attack strength
+	public void check() {
+		setBleed();
+		if (hp <= staticHP/2 && !ability) {
+			setATK(getATK() - 5);
+			ability = true;
+		}
+	}
 }

@@ -14,8 +14,12 @@ public class OrganicHelicopter extends Character {
 
 	@Override
 	public int getDmg() {
-		// TODO Auto-generated method stub
-		return 0;
+		return randomDmg(-5, 1);
+	}
+	//when attacked, helicopter gets more aggressive 
+	public void check() {
+		setBleed();
+		atk += 1 + (int)(Math.random() * 5);
 	}
 
 }

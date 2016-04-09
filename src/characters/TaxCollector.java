@@ -11,6 +11,6 @@ public class TaxCollector extends Character {
 	@Override
 	public int getDmg() {
 		// TODO Auto-generated method stub
-		return 0;
+		return randomDmg(-10, 10);
 	}
 }
