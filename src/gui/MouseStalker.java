@@ -83,7 +83,7 @@ public class MouseStalker extends MouseInputAdapter {
 				grid.getBoard(loc.getRow(), loc.getCol()).setToolTipText("Name: " + c.getName() +
 						"\nATK: " + c.getATK() + "\nHP:" + c.getHP());
 				
-				StatButtons stats = new StatButtons(c);
+				StatButtons stats = new StatButtons(c, p1);
 				
 				stats.setTitle("Set Stats for Unit");
 
@@ -91,7 +91,8 @@ public class MouseStalker extends MouseInputAdapter {
 
 				stats.setSize(200, 120);
 
-				stats.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+				stats.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+				stats.dispose();
 
 				stats.setVisible(true);
 			} else {
@@ -102,7 +103,7 @@ public class MouseStalker extends MouseInputAdapter {
 				grid.getBoard(loc.getRow(), loc.getCol()).setToolTipText("Name: " + c.getName() +
 						"\nATK: " + c.getATK() + "\nHP:" + c.getHP());
 				
-				StatButtons stats = new StatButtons(c);
+				StatButtons stats = new StatButtons(c, p2);
 				
 				stats.setTitle("Set Stats for Unit");
 

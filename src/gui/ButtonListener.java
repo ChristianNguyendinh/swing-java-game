@@ -27,8 +27,10 @@ public class ButtonListener implements ActionListener {
 
 	private boolean minusATK;
 	private characters.Character c;
+	private players.Player p;
 
-	public ButtonListener(boolean hpUP, boolean hpDOWN, boolean atkUP, boolean atkDOWN, characters.Character c) {
+	public ButtonListener(boolean hpUP, boolean hpDOWN, boolean atkUP, boolean atkDOWN,
+			characters.Character c, players.Player p) {
 
 		plusHP = hpUP;
 
@@ -39,6 +41,8 @@ public class ButtonListener implements ActionListener {
 		minusATK = atkDOWN;
 		
 		this.c = c;
+		
+		this.p = p;
 
 	}
 
