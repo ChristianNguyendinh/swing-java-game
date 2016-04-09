@@ -18,12 +18,16 @@ public class CombatWombat extends Character {
 		return randomDmg(-2, 5);
 	}
 	//when CombatWombats are in an pinch, their attack goes up
-	public void check() {
+	public String check() {
+		String msg = "";
 		setBleed();
+		if (bleed) 
+			msg += name + " is bleeding.";
 		if (hp <= staticAtk / 2 && !ability) {
 			atk += 5;
 			ability = true;
 		}
+		return msg += " " + name + " is ready to fight fiercely!";
 	}
 
 }

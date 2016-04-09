@@ -36,8 +36,9 @@ public abstract class Character {
 		if (atk <= 0) 
 			atk = 1;
 	}
-	public void check() {
+	public String check() {
 		setBleed();
+		return bleed ? name + " is bleeding." : "";
 	}
 	public void setStaticATK(int atk) {
 		this.staticAtk = atk;

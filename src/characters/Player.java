@@ -21,8 +21,10 @@ public class Player extends Character {
 		return atk;
 	}
 	//player's attack doesn't get affected
-	public void check() {
+	public String check() {
 		setBleed();
 		atk = staticAtk;
+		return bleed ? name + " is bleeding. " + name + " maintains his attack." :
+			name + " maintains his attack.";
 	}
 }

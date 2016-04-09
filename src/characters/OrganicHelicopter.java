@@ -17,9 +17,14 @@ public class OrganicHelicopter extends Character {
 		return randomDmg(-5, 1);
 	}
 	//when attacked, helicopter gets more aggressive 
-	public void check() {
+	public String check() {
 		setBleed();
-		atk += 1 + (int)(Math.random() * 5);
+		int increase = 1 + (int)(Math.random() * 5);
+		atk += increase;
+		String msg = name + "'s attack increased by " + increase;
+		if (bleed)
+			msg += " " + name + " is bleeding.";
+		return msg;
 	}
 
 }

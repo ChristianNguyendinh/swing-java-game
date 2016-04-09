@@ -21,7 +21,8 @@ public class WeatherVane extends Character {
 		// TODO Auto-generated method stub
 		return randomDmg(-1, 4);
 	}
-	public void check() {
+	public String check() {
 		setHP(getHP() + 2);
+		return name + " gained 2 HP.";
 	}
 }
