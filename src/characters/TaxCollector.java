@@ -1,7 +1,10 @@
 package characters;
 
 public class TaxCollector extends Character {
-
+	public TaxCollector() {
+		speed = 3;
+		name = "Tax Collector";
+	}
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub
