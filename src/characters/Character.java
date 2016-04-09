@@ -8,6 +8,7 @@ public abstract class Character {
 	int staticHP;
 	int speed;
 	String name;
+	String path;
 	boolean ability;
 	boolean bleed;
 	
@@ -51,6 +52,15 @@ public abstract class Character {
 				bleed = false;
 		}
 	}
+	
+	public String getImage() {
+		return path;
+	}
+	
+	public void setImage(String path) {
+		this.path = path;
+	}
+	
 	public void bleed() {
 		setHP(getHP() - (1 + (int)(Math.random() * 5)));
 	}
@@ -63,7 +73,6 @@ public abstract class Character {
 			dmg = 1;
 		return dmg;
 	}
-	public abstract String getImage();
 	
 	public abstract String toString();
 	

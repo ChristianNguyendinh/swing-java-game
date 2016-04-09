@@ -45,24 +45,30 @@ public class MouseStalker extends MouseInputAdapter {
 
 	private JPanel panel;
 	private GridPoint loc;
+	private players.Player p1;
+	private players.Player p2;
+	private players.Player pTurn;
+	private Color colour = Color.BLUE;
 
 	private static int clicked = 0;
 
-	public MouseStalker(GridPoint myLoc, SpriteScreen g1) {
+	public MouseStalker(GridPoint myLoc, SpriteScreen g1, players.Player p1, players.Player p2) {
 
 		loc = myLoc;
 
 		grid = g1;
 
 		panel = grid.getBoard(loc.getRow(), loc.getCol());
+		
+		this.p1 = p1;
+		
+		this.p2 = p2;
+		
+		pTurn = p1;
 
 	}
 
 	public void mouseClicked(MouseEvent e) {
-
-		players.Player p1 = new players.Player("Player 1");
-
-		players.Player p2 = new players.Player("Player 2");
 
 		if ((e.getModifiers() & InputEvent.BUTTON3_MASK) == InputEvent.BUTTON3_MASK)
 
@@ -71,26 +77,10 @@ public class MouseStalker extends MouseInputAdapter {
 		else {
 
 			Character c = new characters.Player();
+			c.setImage(grid.getBoard(loc.getRow(), loc.getCol()).getName());
+			pTurn.addCharacter(c);
 
-			c.setStaticATK(30);
-
-			Character d = new WeatherVane();
-
-			d.setHP(100);
-
-			p1.addCharacter(c);
-
-			p2.addCharacter(d);
-
-			System.out.println(p1.action(p2, p1.getCharacter(0), p2.getCharacter(0)));
-			
-			c.setImage("pics/ComputerGuy.jpg");
-			d.setImage("pics/FighterJet.jpg");
-
-			grid.getBoard(loc.getRow(), loc.getCol()).setBackground(Color.BLUE);
-
-			grid.getBoard(loc.getRow(), loc.getCol()).setToolTipText("HP:" + d.getHP());
-
+			grid.getBoard(loc.getRow(), loc.getCol()).setBackground(colour);
 		}
 
 		/*
@@ -106,11 +96,16 @@ public class MouseStalker extends MouseInputAdapter {
 		}
 
 		clicked++;
-
+		
 		if (clicked == 6) {
+			colour = Color.GREEN;
+			pTurn = p2;
+		}
+
+		if (clicked == 12) {
 
 			grid.setVisible(false);
-
+			p2 = new players.Player("p2");
 			launchBattle(p1.characters, p2.characters);
 
 		}

@@ -123,7 +123,7 @@ public class BattleScreen extends JFrame {
 	public Container getPlace(){
 		return place;
 	}
-
+/*
 	public static void main(String[] args) {
 		BattleScreen battle=new BattleScreen(null, null);
 		battle.setResizable(false);
@@ -132,5 +132,5 @@ public class BattleScreen extends JFrame {
 		battle.setVisible(true);
 
 
-	}
+	}*/
 }
