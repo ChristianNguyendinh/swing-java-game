@@ -80,6 +80,7 @@ public class BATTLEMouseStalker extends MouseInputAdapter{
 					turnClick++;
 					if(loc.getCol() == 0) {
 						if(loc.getRow() == 0) {
+							JOptionPane.showMessageDialog(null, "we here");
 							friend = p1List.get(0);
 						} else if(loc.getRow() == 1) {
 							friend = p1List.get(1);
@@ -105,25 +106,25 @@ public class BATTLEMouseStalker extends MouseInputAdapter{
 					JOptionPane.showMessageDialog(null, "Player 2 Turn");
 					if(loc.getCol() == 3) {
 						if(loc.getRow() == 0) {
-							target = p1List.get(0);
-							grid.textPanel.add(new JLabel(p1.action(p2, friend, target)));
+							target = p2List.get(0);
+							p1Action();
 						} else if(loc.getRow() == 1) {
-							target = p1List.get(1);
-							grid.textPanel.add(new JLabel(p1.action(p2, friend, target)));
+							target = p2List.get(1);
+							p1Action();
 						} else if(loc.getRow() == 2) {
-							target = p1List.get(2);
-							grid.textPanel.add(new JLabel(p1.action(p2, friend, target)));
+							target = p2List.get(2);
+							p1Action();
 						}
 					} else if(loc.getCol() == 4) {
 						if(loc.getRow() == 0) {
-							target = p1List.get(3);
-							grid.textPanel.add(new JLabel(p1.action(p2, friend, target)));
+							target = p2List.get(3);
+							p1Action();
 						} else if(loc.getRow() == 1) {
-							target = p1List.get(4);
-							grid.textPanel.add(new JLabel(p1.action(p2, friend, target)));
+							target = p2List.get(4);
+							p1Action();
 						} else if(loc.getRow() == 2) {
-							target = p1List.get(5);
-							grid.textPanel.add(new JLabel(p1.action(p2, friend, target)));
+							target = p2List.get(5);
+							p1Action();
 						}
 					}
 					friend = null;
@@ -165,24 +166,24 @@ public class BATTLEMouseStalker extends MouseInputAdapter{
 					if(loc.getCol() == 0) {
 						if(loc.getRow() == 0) {
 							target = p1List.get(0);
-							grid.textPanel.add(new JLabel(p1.action(p2, friend, target)));
+							p2Action();
 						} else if(loc.getRow() == 1) {
 							target = p1List.get(1);
-							grid.textPanel.add(new JLabel(p1.action(p2, friend, target)));
+							p2Action();
 						} else if(loc.getRow() == 2) {
 							target = p1List.get(2);
-							grid.textPanel.add(new JLabel(p1.action(p2, friend, target)));
+							p2Action();
 						}
 					} else if(loc.getCol() == 1) {
 						if(loc.getRow() == 0) {
 							target = p1List.get(3);
-							grid.textPanel.add(new JLabel(p1.action(p2, friend, target)));
+							p2Action();
 						} else if(loc.getRow() == 1) {
 							target = p1List.get(4);
-							grid.textPanel.add(new JLabel(p1.action(p2, friend, target)));
+							p2Action();
 						} else if(loc.getRow() == 2) {
 							target = p1List.get(5);
-							grid.textPanel.add(new JLabel(p1.action(p2, friend, target)));
+							p2Action();
 						}
 					}
 					friend = null;
@@ -194,6 +195,32 @@ public class BATTLEMouseStalker extends MouseInputAdapter{
 		clicked++;
 
 		
+	}
+	
+	private void p1Action() {
+		JLabel text = new JLabel();
+		text.setText("<html><p style =\"width:100px;\">" + p1.action(p2, friend, target) + "</html>");
+		grid.textPanel.removeAll();
+		grid.textPanel.add(text);
+		grid.textPanel.revalidate();
+		grid.textPanel.repaint();
+		grid.getBoard(loc.getRow(), loc.getCol()).setToolTipText("Name: "
+				+ target.getName() + "\nATK: " + 
+				target.getATK() + "\nHP:" +
+				target.getHP());
+	}
+	
+	private void p2Action() {
+		JLabel text = new JLabel();
+		text.setText("<html><p style =\"width:100px;\">" + p2.action(p1, friend, target) + "</html>");
+		grid.textPanel.removeAll();
+		grid.textPanel.add(text);
+		grid.textPanel.revalidate();
+		grid.textPanel.repaint();
+		grid.getBoard(loc.getRow(), loc.getCol()).setToolTipText("Name: "
+				+ target.getName() + "\nATK: " + 
+				target.getATK() + "\nHP:" +
+				target.getHP());
 	}
 	
 	private void emptyBackground() {
