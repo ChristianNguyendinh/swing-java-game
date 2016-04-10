@@ -179,7 +179,15 @@ public class BATTLEMouseStalker extends MouseInputAdapter{
 				}
 			}
 		}
-		clicked++;		
+		clicked++;	
+		if (p1.lost()) {
+			JOptionPane.showMessageDialog(null, "p2 wins!");
+			System.exit(0);
+		}
+		if (p2.lost()) {
+			JOptionPane.showMessageDialog(null, "p1 wins!");
+			System.exit(0);
+		}
 	}
 	
 	private void p1Action() {

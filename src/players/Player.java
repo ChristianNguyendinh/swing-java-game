@@ -76,7 +76,7 @@ public class Player {
 		for (Character current : characters)
 			totalHP += current.getHP();
 		
-		return totalHP == 0;
+		return totalHP <= 0;
 	}
 	public int speed() {
 		int totalSpeed = 0;
