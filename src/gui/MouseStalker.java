@@ -45,8 +45,8 @@ public class MouseStalker extends MouseInputAdapter {
 
 	private JPanel panel;
 	private GridPoint loc;
-	private players.Player p1;
-	private players.Player p2;
+	private static players.Player p1;
+	private static players.Player p2;
 	private players.Player pTurn;
 	private Color colour = Color.BLUE;
 
@@ -87,14 +87,6 @@ public class MouseStalker extends MouseInputAdapter {
 				
 				stats.setTitle("Set Stats for Unit");
 
-				stats.setResizable(false);
-
-				stats.setSize(200, 120);
-
-				stats.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
-				stats.dispose();
-
-				stats.setVisible(true);
 			} else {
 				Character c = new characters.Player();
 				c.setImage(grid.getBoard(loc.getRow(), loc.getCol()).getName());
@@ -107,13 +99,7 @@ public class MouseStalker extends MouseInputAdapter {
 				
 				stats.setTitle("Set Stats for Unit");
 
-				stats.setResizable(false);
-
-				stats.setSize(200, 120);
-
-				stats.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-				stats.setVisible(true);
+			
 			}
 			if(clicked == 5) {
 				JOptionPane.showMessageDialog(null, "Player 2 Pick Now");
@@ -138,7 +124,7 @@ public class MouseStalker extends MouseInputAdapter {
 
 	private static void launchBattle(ArrayList characters1, ArrayList characters2) {
 
-		BattleScreen battle = new BattleScreen(characters1, characters2);
+		BattleScreen battle = new BattleScreen(characters1, characters2, p1, p2);
 
 		battle.setResizable(false);
 

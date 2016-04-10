@@ -80,6 +80,14 @@ public class StatButtons extends JFrame {
 		this.add(panel1);
 
 		this.add(panel2);
+		
+		this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+		
+		this.setResizable(false);
+
+		this.setSize(200, 120);
+
+		this.setVisible(true);
 
 	}
 

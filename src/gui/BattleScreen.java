@@ -30,7 +30,7 @@ public class BattleScreen extends JFrame {
 
 	public JPanel textPanel;
 
-	public BattleScreen(ArrayList<Character> characters1, ArrayList<Character> characters2) {
+	public BattleScreen(ArrayList<Character> characters1, ArrayList<Character> characters2, players.Player p1, players.Player p2) {
 
 		place = getContentPane();
 
@@ -64,15 +64,15 @@ public class BattleScreen extends JFrame {
 
 			for (int y = 0; y < 5; y++) {
 
-				battleBoard[x][y].addMouseListener(new BATTLEMouseStalker(new GridPoint(x, y), this));
+				battleBoard[x][y].addMouseListener(new BATTLEMouseStalker(new GridPoint(x, y), this, characters1, characters2, p1, p2));
 
 			}
 
 		}
 
 		setBoard(characters1, characters2);
-		
-		textPanel=battleBoard[1][2];
+
+		textPanel = battleBoard[1][2];
 
 		textPanel.add(new JLabel("Let the battle begin!"));
 

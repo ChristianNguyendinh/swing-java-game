@@ -14,11 +14,14 @@ import java.util.ArrayList;
 import javax.imageio.ImageIO;
 import javax.swing.BorderFactory;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.UIManager;
 import javax.swing.border.Border;
 import javax.swing.event.MouseInputAdapter;
+
+import gui.BattleScreen;
 
 
 public class BATTLEMouseStalker extends MouseInputAdapter{
@@ -26,23 +29,29 @@ public class BATTLEMouseStalker extends MouseInputAdapter{
 	private JPanel panel;	
 	private GridPoint loc;
 	
-	private static GridPoint green=null;
-	private static GridPoint red=null;
-	
 	private static double clicked=0;
 	
 	private static boolean p1Turn = true;
 	private static boolean fSelected = false;
-	private static boolean eSelected = false;
 	private static int turnClick = 0;
-	
+	private static characters.Character friend;
+	private static characters.Character target;
+	ArrayList<characters.Character> p1List;
+	ArrayList<characters.Character> p2List;
+	private players.Player p1;
+	private players.Player p2;
 	
 	//ArrayList<Player> players;
 
-	public BATTLEMouseStalker(GridPoint myLoc, BattleScreen g1){
+	public BATTLEMouseStalker(GridPoint myLoc, BattleScreen g1, 
+			ArrayList<characters.Character> characters1, ArrayList<characters.Character> characters2, players.Player p1, players.Player p2){
 		loc=myLoc;
 		grid=g1;
 		panel=grid.getBoard(loc.getRow(), loc.getCol());
+		p1List = characters1;
+		p2List = characters2;
+		this.p1 = p1;
+		this.p2 = p2;
 	}
 	public void mouseClicked(MouseEvent e){
 
@@ -69,6 +78,23 @@ public class BATTLEMouseStalker extends MouseInputAdapter{
 					grid.getBoard(loc.getRow(), loc.getCol()).setBackground(Color.CYAN);
 					fSelected = true;
 					turnClick++;
+					if(loc.getCol() == 0) {
+						if(loc.getRow() == 0) {
+							friend = p1List.get(0);
+						} else if(loc.getRow() == 1) {
+							friend = p1List.get(1);
+						} else if(loc.getRow() == 2) {
+							friend = p1List.get(2);
+						}
+					} else if(loc.getCol() == 1) {
+						if(loc.getRow() == 0) {
+							friend = p1List.get(3);
+						} else if(loc.getRow() == 1) {
+							friend = p1List.get(4);
+						} else if(loc.getRow() == 2) {
+							friend = p1List.get(5);
+						}
+					}
 				}
 			} else {
 				if((loc.getCol() == 3 || loc.getCol() == 4) && fSelected) {
@@ -77,6 +103,31 @@ public class BATTLEMouseStalker extends MouseInputAdapter{
 					turnClick = 0;
 					p1Turn = false;
 					JOptionPane.showMessageDialog(null, "Player 2 Turn");
+					if(loc.getCol() == 3) {
+						if(loc.getRow() == 0) {
+							target = p1List.get(0);
+							grid.textPanel.add(new JLabel(p1.action(p2, friend, target)));
+						} else if(loc.getRow() == 1) {
+							target = p1List.get(1);
+							grid.textPanel.add(new JLabel(p1.action(p2, friend, target)));
+						} else if(loc.getRow() == 2) {
+							target = p1List.get(2);
+							grid.textPanel.add(new JLabel(p1.action(p2, friend, target)));
+						}
+					} else if(loc.getCol() == 4) {
+						if(loc.getRow() == 0) {
+							target = p1List.get(3);
+							grid.textPanel.add(new JLabel(p1.action(p2, friend, target)));
+						} else if(loc.getRow() == 1) {
+							target = p1List.get(4);
+							grid.textPanel.add(new JLabel(p1.action(p2, friend, target)));
+						} else if(loc.getRow() == 2) {
+							target = p1List.get(5);
+							grid.textPanel.add(new JLabel(p1.action(p2, friend, target)));
+						}
+					}
+					friend = null;
+					target = null;
 					emptyBackground();
 				}
 			}
@@ -86,6 +137,23 @@ public class BATTLEMouseStalker extends MouseInputAdapter{
 					grid.getBoard(loc.getRow(), loc.getCol()).setBackground(Color.CYAN);
 					fSelected = true;
 					turnClick++;
+					if(loc.getCol() == 3) {
+						if(loc.getRow() == 0) {
+							friend = p2List.get(0);
+						} else if(loc.getRow() == 1) {
+							friend = p2List.get(1);
+						} else if(loc.getRow() == 2) {
+							friend = p2List.get(2);
+						}
+					} else if(loc.getCol() == 4) {
+						if(loc.getRow() == 0) {
+							friend = p2List.get(0);
+						} else if(loc.getRow() == 1) {
+							friend = p2List.get(4);
+						} else if(loc.getRow() == 2) {
+							friend = p2List.get(5);
+						}
+					}
 				}
 			} else {
 				if(loc.getCol() == 0 || loc.getCol() == 1) {
@@ -94,6 +162,31 @@ public class BATTLEMouseStalker extends MouseInputAdapter{
 					turnClick = 0;
 					p1Turn = true;
 					JOptionPane.showMessageDialog(null, "Player 1 Turn");
+					if(loc.getCol() == 0) {
+						if(loc.getRow() == 0) {
+							target = p1List.get(0);
+							grid.textPanel.add(new JLabel(p1.action(p2, friend, target)));
+						} else if(loc.getRow() == 1) {
+							target = p1List.get(1);
+							grid.textPanel.add(new JLabel(p1.action(p2, friend, target)));
+						} else if(loc.getRow() == 2) {
+							target = p1List.get(2);
+							grid.textPanel.add(new JLabel(p1.action(p2, friend, target)));
+						}
+					} else if(loc.getCol() == 1) {
+						if(loc.getRow() == 0) {
+							target = p1List.get(3);
+							grid.textPanel.add(new JLabel(p1.action(p2, friend, target)));
+						} else if(loc.getRow() == 1) {
+							target = p1List.get(4);
+							grid.textPanel.add(new JLabel(p1.action(p2, friend, target)));
+						} else if(loc.getRow() == 2) {
+							target = p1List.get(5);
+							grid.textPanel.add(new JLabel(p1.action(p2, friend, target)));
+						}
+					}
+					friend = null;
+					target = null;
 					emptyBackground();
 				}
 			}
