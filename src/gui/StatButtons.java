@@ -24,6 +24,8 @@ public class StatButtons extends JFrame {
 	private JPanel panel2;
 	
 	public static JPanel panel3;
+	
+	public static JPanel panel4;
 
 	private JButton plusHP;
 
@@ -43,13 +45,15 @@ public class StatButtons extends JFrame {
 
 		c = getContentPane();
 
-		g = new GridLayout(3, 1);
+		g = new GridLayout(4, 1);
 
 		panel1 = new JPanel();
 
 		panel2 = new JPanel();
 		
 		panel3 = new JPanel();
+		
+		panel4 = new JPanel();
 
 		c.setLayout(g);
 
@@ -81,11 +85,15 @@ public class StatButtons extends JFrame {
 
 		panel2.add(minusATK);
 		
+		panel4.add(new JLabel("Unit's HP: " + character.getHP() + "  Unit's ATK: " + character.getATK()));
+		
 		panel3.add(new JLabel("Total HP: " + p.totalHP() + "  Total ATK: " + p.totalATK()));
 
 		this.add(panel1);
 
 		this.add(panel2);
+		
+		this.add(panel4);
 		
 		this.add(panel3);
 		
@@ -93,7 +101,7 @@ public class StatButtons extends JFrame {
 		
 		this.setResizable(false);
 
-		this.setSize(200, 120);
+		this.setSize(200, 180);
 
 		this.setVisible(true);
 

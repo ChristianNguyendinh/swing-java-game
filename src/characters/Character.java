@@ -27,6 +27,9 @@ public abstract class Character {
 	}
 	public void setHP(int hp) {
 		this.hp = hp;
+		if(this.hp < 0) {
+			this.hp = 0;
+		}
 	}
 	public boolean isDead() {
 		return hp <= 0;
@@ -46,8 +49,10 @@ public abstract class Character {
 	}
 	public void setBleed() {
 		if (!bleed) {
-			if ((int)(Math.random() * 1) == 1)
+			if (1 + (int)(Math.random() * 2) == 1) {
 				bleed = true;
+				bleed();
+			}
 		}
 		else {
 			bleed();

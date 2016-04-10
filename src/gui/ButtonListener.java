@@ -50,30 +50,29 @@ public class ButtonListener implements ActionListener {
 
 		if (plusHP) {
 			p.incrementHP(c);
-			StatButtons.panel3.removeAll();
-			StatButtons.panel3.add(new JLabel("Total HP: " + p.totalHP() + "  Total ATK: " + p.totalATK()));
-			StatButtons.panel3.revalidate();
-			StatButtons.panel3.repaint();
+			update();
 		} else if (minusHP) {
 			p.decrementHP(c);
-			StatButtons.panel3.removeAll();
-			StatButtons.panel3.add(new JLabel("Total HP: " + p.totalHP() + "  Total ATK: " + p.totalATK()));
-			StatButtons.panel3.revalidate();
-			StatButtons.panel3.repaint();
+			update();
 		} else if (plusATK) {
 			p.incrementAtk(c);
-			StatButtons.panel3.removeAll();
-			StatButtons.panel3.add(new JLabel("Total HP: " + p.totalHP() + "  Total ATK: " + p.totalATK()));
-			StatButtons.panel3.revalidate();
-			StatButtons.panel3.repaint();
+			update();
 		} else if (minusATK) {
 			p.decrementAtk(c);
-			StatButtons.panel3.removeAll();
-			StatButtons.panel3.add(new JLabel("Total HP: " + p.totalHP() + "  Total ATK: " + p.totalATK()));
-			StatButtons.panel3.revalidate();
-			StatButtons.panel3.repaint();
+			update();
 		}
 
+	}
+	
+	private void update() {
+		StatButtons.panel4.removeAll();
+		StatButtons.panel4.add(new JLabel("Unit's HP: " + c.getHP() + "  Unit's ATK: " + c.getATK()));
+		StatButtons.panel4.revalidate();
+		StatButtons.panel4.repaint();
+		StatButtons.panel3.removeAll();
+		StatButtons.panel3.add(new JLabel("Total HP: " + p.totalHP() + "  Total ATK: " + p.totalATK()));
+		StatButtons.panel3.revalidate();
+		StatButtons.panel3.repaint();
 	}
 
 }

@@ -78,7 +78,7 @@ public class BATTLEMouseStalker extends MouseInputAdapter{
 		if(p1Turn) {
 			if(turnClick == 0) {
 				if((loc.getCol() == 0 || loc.getCol() == 1) && !fSelected && 
-						grid.getBoard(loc.getRow(), loc.getCol()).getForeground().equals(Color.RED)) {
+						!grid.getBoard(loc.getRow(), loc.getCol()).getToolTipText().equals("DEAD")) {
 					grid.getBoard(loc.getRow(), loc.getCol()).setBackground(Color.BLUE);
 					fSelected = true;
 					turnClick++;
@@ -102,7 +102,7 @@ public class BATTLEMouseStalker extends MouseInputAdapter{
 				}
 			} else {
 				if((loc.getCol() == 3 || loc.getCol() == 4) && fSelected && 
-						grid.getBoard(loc.getRow(), loc.getCol()).getForeground().equals(Color.RED)) {
+						!grid.getBoard(loc.getRow(), loc.getCol()).getToolTipText().equals("DEAD")) {
 					grid.getBoard(loc.getRow(), loc.getCol()).setBackground(Color.RED);
 					fSelected = false;
 					turnClick = 0;
@@ -139,7 +139,7 @@ public class BATTLEMouseStalker extends MouseInputAdapter{
 		} else {
 			if(turnClick == 0) {
 				if(loc.getCol() == 3 || loc.getCol() == 4 && !fSelected &&
-						grid.getBoard(loc.getRow(), loc.getCol()).getForeground().equals(Color.RED)) {
+						!grid.getBoard(loc.getRow(), loc.getCol()).getToolTipText().equals("DEAD")) {
 					grid.getBoard(loc.getRow(), loc.getCol()).setBackground(Color.CYAN);
 					fSelected = true;
 					turnClick++;
@@ -163,7 +163,7 @@ public class BATTLEMouseStalker extends MouseInputAdapter{
 				}
 			} else {
 				if(loc.getCol() == 0 || loc.getCol() == 1 && fSelected &&
-						grid.getBoard(loc.getRow(), loc.getCol()).getForeground().equals(Color.RED)) {
+						!grid.getBoard(loc.getRow(), loc.getCol()).getToolTipText().equals("DEAD")) {
 					grid.getBoard(loc.getRow(), loc.getCol()).setBackground(Color.RED);
 					fSelected = false;
 					turnClick = 0;
@@ -218,14 +218,14 @@ public class BATTLEMouseStalker extends MouseInputAdapter{
 		grid.textPanel.revalidate();
 		grid.textPanel.repaint();
 		if(target.isDead()) {
+			grid.getBoard(loc.getRow(), loc.getCol()).setToolTipText("DEAD");
 			grid.getBoard(loc.getRow(), loc.getCol()).removeAll();
-			grid.getBoard(loc.getRow(), loc.getCol()).setBackground(Color.RED);
-			grid.getBoard(loc.getRow(), loc.getCol()).setForeground(Color.RED);
-		} 
-		grid.getBoard(loc.getRow(), loc.getCol()).setToolTipText("Name: "
-				+ target.getName() + "\nATK: " + 
-				target.getATK() + "\nHP:" +
-				target.getHP());
+		} else {
+			grid.getBoard(loc.getRow(), loc.getCol()).setToolTipText("Name: "
+					+ target.getName() + "\nATK: " + 
+					target.getATK() + "\nHP:" +
+					target.getHP());
+		}
 		
 	}
 	
@@ -237,14 +237,14 @@ public class BATTLEMouseStalker extends MouseInputAdapter{
 		grid.textPanel.revalidate();
 		grid.textPanel.repaint();
 		if(target.isDead()) {
+			grid.getBoard(loc.getRow(), loc.getCol()).setToolTipText("DEAD");
 			grid.getBoard(loc.getRow(), loc.getCol()).removeAll();
-			grid.getBoard(loc.getRow(), loc.getCol()).setBackground(Color.RED);
-			grid.getBoard(loc.getRow(), loc.getCol()).setForeground(Color.RED);
+		} else {
+			grid.getBoard(loc.getRow(), loc.getCol()).setToolTipText("Name: "
+					+ target.getName() + "\nATK: " + 
+					target.getATK() + "\nHP:" +
+					target.getHP());
 		}
-		grid.getBoard(loc.getRow(), loc.getCol()).setToolTipText("Name: "
-				+ target.getName() + "\nATK: " + 
-				target.getATK() + "\nHP:" +
-				target.getHP());
 	}
 	
 	private void emptyBackground() {
