@@ -55,6 +55,9 @@ public class BATTLEMouseStalker extends MouseInputAdapter{
 	}
 	public void mouseClicked(MouseEvent e){
 
+		if(p1List.size() <= 2 || p2List.size() <= 2) {
+			SpriteScreen.playBattleFastMusic();
+		}
 		/*	
 		if (clicked%2==0 && clicked!=1) {
 			grid.getBoard(loc.getRow(), loc.getCol()).setBackground(Color.GREEN);

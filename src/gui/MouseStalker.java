@@ -85,7 +85,7 @@ public class MouseStalker extends MouseInputAdapter {
 				
 				StatButtons stats = new StatButtons(c, p1);
 				
-				stats.setTitle("Set Stats for Unit");
+				stats.setTitle("Set Stats for "+ grid.getBoard(loc.getRow(), loc.getCol()).getName().substring(5, grid.getBoard(loc.getRow(), loc.getCol()).getName().length() - 4));
 
 			} else {
 				Character c = new characters.Player();
@@ -97,7 +97,7 @@ public class MouseStalker extends MouseInputAdapter {
 				
 				StatButtons stats = new StatButtons(c, p2);
 				
-				stats.setTitle("Set Stats for Unit");
+				stats.setTitle("Set Stats for "+ grid.getBoard(loc.getRow(), loc.getCol()).getName().substring(5, grid.getBoard(loc.getRow(), loc.getCol()).getName().length() - 4));
 
 			
 			}

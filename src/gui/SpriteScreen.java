@@ -7,15 +7,19 @@ import java.awt.GridLayout;
 import java.awt.Image;
 import java.awt.RenderingHints;
 import java.awt.image.BufferedImage;
+import java.io.File;
 
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+import javax.sound.sampled.FloatControl;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-
 public class SpriteScreen extends JFrame {
-	
+
 	JPanel[][] spriteBoard;
 	private Container place;
 	private GridLayout grid;
@@ -23,34 +27,38 @@ public class SpriteScreen extends JFrame {
 
 	public players.Player p2 = new players.Player("Player 2");
 	
+	public static Clip clip;
+
 	public SpriteScreen() {
-		place=getContentPane();
-		spriteBoard=new JPanel[5][5];
-		grid=new GridLayout(5,5);
+		place = getContentPane();
+		spriteBoard = new JPanel[5][5];
+		grid = new GridLayout(5, 5);
 		place.setLayout(grid);
-		
-		for (int i=0; i<5; i++) {
-			for (int k=0; k<5; k++) {
-				spriteBoard[k][i]= new JPanel();
+
+		for (int i = 0; i < 5; i++) {
+			for (int k = 0; k < 5; k++) {
+				spriteBoard[k][i] = new JPanel();
 			}
 		}
-		
-		for (int k=0; k<5; k++) {
-			for (int i=0; i<5; i++) {
+
+		for (int k = 0; k < 5; k++) {
+			for (int i = 0; i < 5; i++) {
 				place.add(spriteBoard[k][i]);
 			}
 		}
-		
-		for(int x=0;x<5;x++){
-			for(int y=0;y<5;y++){
-				spriteBoard[x][y].addMouseListener(new MouseStalker(new GridPoint(x,y), this, p1, p2));
+
+		for (int x = 0; x < 5; x++) {
+			for (int y = 0; y < 5; y++) {
+				spriteBoard[x][y].addMouseListener(new MouseStalker(new GridPoint(x, y), this, p1, p2));
 			}
 		}
-		
+
 		setSpriteBoard();
+		
+		playThemeMusic();
 
 	}
-	
+
 	private void setSpriteBoard() {
 		spriteBoard[0][0].setName("pics/AverageJoe.jpg");
 		setSprite("pics/BC Macho-Macho.jpg", 0, 1);
@@ -61,7 +69,7 @@ public class SpriteScreen extends JFrame {
 		spriteBoard[0][3].setName("pics/ComputerGuy.jpg");
 		setSprite("pics/Dev1.jpg", 0, 4);
 		spriteBoard[0][4].setName("pics/Dev1.jpg");
-		
+
 		setSprite("pics/Dev2.jpg", 1, 0);
 		spriteBoard[1][0].setName("pics/Dev2.jpg");
 		setSprite("pics/Dumpling.jpg", 1, 1);
@@ -72,7 +80,7 @@ public class SpriteScreen extends JFrame {
 		spriteBoard[1][3].setName("pics/Heliman.jpg");
 		setSprite("pics/Heliman2.jpg", 1, 4);
 		spriteBoard[1][4].setName("pics/Heliman2.jpg");
-		
+
 		setSprite("pics/Jet2.jpg", 2, 0);
 		spriteBoard[2][0].setName("pics/Jet2.jpg");
 		setSprite("pics/Koala.jpg", 2, 1);
@@ -83,7 +91,7 @@ public class SpriteScreen extends JFrame {
 		spriteBoard[2][3].setName("pics/OldMan.jpg");
 		setSprite("pics/PolymorphicBST.jpg", 2, 4);
 		spriteBoard[2][4].setName("pics/PolymorphicBST.jpg");
-		
+
 		setSprite("pics/RacoonMan.jpg", 3, 0);
 		spriteBoard[3][0].setName("pics/RacoonMan.jpg");
 		setSprite("pics/RoundhouseKick.jpg", 3, 1);
@@ -94,7 +102,7 @@ public class SpriteScreen extends JFrame {
 		spriteBoard[3][3].setName("pics/Slicer.jpg");
 		setSprite("pics/Snake.jpg", 3, 4);
 		spriteBoard[3][4].setName("pics/Snake.jpg");
-		
+
 		setSprite("pics/TheImposter.jpg", 4, 0);
 		spriteBoard[4][0].setName("pics/TheImposter.jpg");
 		setSprite("pics/LeafThing.jpg", 4, 1);
@@ -105,54 +113,142 @@ public class SpriteScreen extends JFrame {
 		spriteBoard[4][3].setName("pics/Wombat.jpg");
 		setSprite("pics/NotoriousGalamaster.jpg", 4, 4);
 		spriteBoard[4][4].setName("pics/NotoriousGalamaster.jpg");
-	
+
 	}
 
 	private void setSprite(String fileName, int row, int col) {
-	    
-		ImageIcon spriteImage=new ImageIcon(fileName);
-		
-		Image img=spriteImage.getImage();
-		Image scaledImage = img.getScaledInstance(125,125,Image.SCALE_SMOOTH);
-		
-		ImageIcon sprite=new ImageIcon(scaledImage);
-		
+
+		ImageIcon spriteImage = new ImageIcon(fileName);
+
+		Image img = spriteImage.getImage();
+		Image scaledImage = img.getScaledInstance(125, 125, Image.SCALE_SMOOTH);
+
+		ImageIcon sprite = new ImageIcon(scaledImage);
+
 		spriteBoard[row][col].add(new JLabel(sprite));
-		
+
 		this.pack();
 		this.setVisible(true);
-		
-		/*JPanel panel1 = new JPanel();
-	    ImageIcon pic = new ImageIcon("your.jpg");
-	    panel1.add(new JLabel(pic));
-	    this.add(panel1);
-	    this.pack();
-	    this.setVisible(true);*/
+
+		/*
+		 * JPanel panel1 = new JPanel(); ImageIcon pic = new
+		 * ImageIcon("your.jpg"); panel1.add(new JLabel(pic)); this.add(panel1);
+		 * this.pack(); this.setVisible(true);
+		 */
 
 	}
-	
-	public GridLayout getGrid(){
+
+	public GridLayout getGrid() {
 		return grid;
 	}
-	public JPanel[][] getBoard(){
+
+	public JPanel[][] getBoard() {
 		return spriteBoard;
 	}
+
 	public JPanel getBoard(int k, int i) {
 		return spriteBoard[k][i];
 	}
-	public Container getPlace(){
+
+	public Container getPlace() {
 		return place;
 	}
 
+	public static void playThemeMusic() {
+
+		try {
+
+			File file = new File("pics/theme1LOW.wav");
+
+			AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(file);
+
+			clip = AudioSystem.getClip();
+
+			clip.open(audioInputStream);
+
+			clip.setFramePosition(0);
+
+			//FloatControl gainControl = (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
+
+			//gainControl.setValue(10.0f);
+
+			clip.loop(Clip.LOOP_CONTINUOUSLY);
+
+		} catch (Exception exc) {
+
+			exc.printStackTrace();
+
+		}
+
+	}
+
+	public static void playBattleMusic() {
+
+		clip.stop();
+
+		try {
+
+			File file = new File("pics/battleLOW.wav");
+
+			AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(file);
+
+			clip = AudioSystem.getClip();
+
+			clip.open(audioInputStream);
+
+			clip.setFramePosition(0);
+
+			//FloatControl gainControl = (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
+
+			//gainControl.setValue(10.0f);
+
+			clip.loop(Clip.LOOP_CONTINUOUSLY);
+
+		} catch (Exception exc) {
+
+			exc.printStackTrace();
+
+		}
+
+	}
 	
-	
+	public static void playBattleFastMusic() {
+
+		clip.stop();
+
+		try {
+
+			File file = new File("pics/battleFAST.wav");
+
+			AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(file);
+
+			clip = AudioSystem.getClip();
+
+			clip.open(audioInputStream);
+
+			clip.setFramePosition(0);
+
+			FloatControl gainControl = (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
+
+			gainControl.setValue(10.0f);
+
+			clip.loop(Clip.LOOP_CONTINUOUSLY);
+
+		} catch (Exception exc) {
+
+			exc.printStackTrace();
+
+		}
+
+	}
+
 	public static void main(String[] args) {
-		SpriteScreen sprites=new SpriteScreen();
+		SpriteScreen sprites = new SpriteScreen();
 		sprites.setResizable(false);
 		sprites.setSize(700, 700);
 		sprites.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		sprites.setVisible(true);
 
 	}
-	
+
 }

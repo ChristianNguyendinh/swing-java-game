@@ -76,6 +76,8 @@ public class BattleScreen extends JFrame {
 		textPanel = battleBoard[1][2];
 
 		textPanel.add(new JLabel("Let the battle begin!"));
+		
+		SpriteScreen.playBattleMusic();
 
 	}
 
