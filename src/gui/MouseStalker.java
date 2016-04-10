@@ -126,7 +126,7 @@ public class MouseStalker extends MouseInputAdapter {
 		String[] choices = { "CombatWombat", "HappyJoker", "OrganicHelicopter",
 				"Player", "RottingTomatoes", "TaxCollector", "WeatherVane" };
 	    String input = (String) JOptionPane.showInputDialog(null, "Choose now...",
-	        "The Choice of a Lifetime", JOptionPane.QUESTION_MESSAGE, null, // Use
+	        "Choose A Class for this Sprite!", JOptionPane.QUESTION_MESSAGE, null, // Use
 	                                                                        // default
 	                                                                        // icon
 	        choices, // Array of choices

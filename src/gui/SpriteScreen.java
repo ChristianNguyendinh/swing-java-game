@@ -242,6 +242,32 @@ public class SpriteScreen extends JFrame {
 		}
 
 	}
+	
+	public static void playVictoryMusic() {
+
+		clip.stop();
+
+		try {
+
+			File file = new File("pics/victoryBITCAMP.wav");
+
+			AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(file);
+
+			clip = AudioSystem.getClip();
+
+			clip.open(audioInputStream);
+
+			clip.setFramePosition(0);
+
+			clip.loop(Clip.LOOP_CONTINUOUSLY);
+
+		} catch (Exception exc) {
+
+			exc.printStackTrace();
+
+		}
+
+	}
 
 	public static void main(String[] args) {
 		SpriteScreen sprites = new SpriteScreen();

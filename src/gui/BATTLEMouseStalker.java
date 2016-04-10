@@ -84,7 +84,6 @@ public class BATTLEMouseStalker extends MouseInputAdapter{
 					turnClick++;
 					if(loc.getCol() == 0) {
 						if(loc.getRow() == 0) {
-							JOptionPane.showMessageDialog(null, "we here");
 							friend = p1List.get(0);
 						} else if(loc.getRow() == 1) {
 							friend = p1List.get(1);
@@ -201,10 +200,12 @@ public class BATTLEMouseStalker extends MouseInputAdapter{
 		}
 		clicked++;
 		if (p1.lost()) {
+			SpriteScreen.playVictoryMusic();
 			JOptionPane.showMessageDialog(null, "p2 wins!");
 			System.exit(0);
 		}
 		if (p2.lost()) {
+			SpriteScreen.playVictoryMusic();
 			JOptionPane.showMessageDialog(null, "p1 wins!");
 			System.exit(0);
 		}
