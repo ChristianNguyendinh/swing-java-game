@@ -12,12 +12,6 @@ public class HappyJoker extends Character {
 	}
 
 	@Override
-	public String getImage() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
 	public int getDmg() {
 		return randomDmg(-2, 2);
 	}

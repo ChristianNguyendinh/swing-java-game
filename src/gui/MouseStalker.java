@@ -76,7 +76,7 @@ public class MouseStalker extends MouseInputAdapter {
 
 		} else {
 			if (clicked >= 6) { 
-				Character c = new characters.Player();
+				Character c = chooseClass();
 				c.setImage(grid.getBoard(loc.getRow(), loc.getCol()).getName());
 				p1.addCharacter(c);
 				grid.getBoard(loc.getRow(), loc.getCol()).setBackground(Color.RED);
@@ -88,7 +88,7 @@ public class MouseStalker extends MouseInputAdapter {
 				stats.setTitle("Set Stats for "+ grid.getBoard(loc.getRow(), loc.getCol()).getName().substring(5, grid.getBoard(loc.getRow(), loc.getCol()).getName().length() - 4));
 
 			} else {
-				Character c = new characters.Player();
+				Character c = chooseClass();
 				c.setImage(grid.getBoard(loc.getRow(), loc.getCol()).getName());
 				p2.addCharacter(c);
 				grid.getBoard(loc.getRow(), loc.getCol()).setBackground(Color.BLUE);
@@ -120,6 +120,34 @@ public class MouseStalker extends MouseInputAdapter {
 
 		}
 
+	}
+	
+	private static characters.Character chooseClass() {
+		String[] choices = { "CombatWombat", "HappyJoker", "OrganicHelicopter",
+				"Player", "RottingTomatoes", "TaxCollector", "WeatherVane" };
+	    String input = (String) JOptionPane.showInputDialog(null, "Choose now...",
+	        "The Choice of a Lifetime", JOptionPane.QUESTION_MESSAGE, null, // Use
+	                                                                        // default
+	                                                                        // icon
+	        choices, // Array of choices
+	        choices[1]); // Initial choice
+		if(input.equals("CombatWombat")) {
+			return new CombatWombat();
+		} else if(input.equals("HappyJoker")) {
+			return new HappyJoker();
+		} else if(input.equals("OrganicHelicopter")) {
+			return new OrganicHelicopter();
+		} else if(input.equals("Player")) {
+			return new characters.Player();
+		} else if(input.equals("RottingTomatoes")) {
+			return new RottingTomatoes();
+		} else if(input.equals("TaxCollector")) {
+			return new TaxCollector();
+		} else if(input.equals("WeatherVane")) {
+			return new WeatherVane();
+		} else {
+			return null;
+		}
 	}
 
 	private static void launchBattle(ArrayList characters1, ArrayList characters2) {
