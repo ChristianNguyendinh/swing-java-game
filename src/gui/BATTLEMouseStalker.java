@@ -201,13 +201,11 @@ public class BATTLEMouseStalker extends MouseInputAdapter{
 		clicked++;
 		if (p1.lost()) {
 			SpriteScreen.playVictoryMusic();
-			JOptionPane.showMessageDialog(null, "p2 wins!");
-			System.exit(0);
+			VictoryScreen v = new VictoryScreen("P2 is victorious!");
 		}
 		if (p2.lost()) {
 			SpriteScreen.playVictoryMusic();
-			JOptionPane.showMessageDialog(null, "p1 wins!");
-			System.exit(0);
+			VictoryScreen v = new VictoryScreen("P1 is victorious!");
 		}
 		
 	}
