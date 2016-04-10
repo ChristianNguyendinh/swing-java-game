@@ -78,24 +78,24 @@ public class MouseStalker extends MouseInputAdapter {
 			if (clicked >= 6) { 
 				Character c = chooseClass();
 				c.setImage(grid.getBoard(loc.getRow(), loc.getCol()).getName());
-				p1.addCharacter(c);
+				p2.addCharacter(c);
 				grid.getBoard(loc.getRow(), loc.getCol()).setBackground(Color.RED);
 				grid.getBoard(loc.getRow(), loc.getCol()).setToolTipText("Name: " + c.getName() +
 						"\nATK: " + c.getATK() + "\nHP:" + c.getHP());
 				
-				StatButtons stats = new StatButtons(c, p1);
+				StatButtons stats = new StatButtons(c, p2);
 				
 				stats.setTitle("Set Stats for "+ grid.getBoard(loc.getRow(), loc.getCol()).getName().substring(5, grid.getBoard(loc.getRow(), loc.getCol()).getName().length() - 4));
 
 			} else {
 				Character c = chooseClass();
 				c.setImage(grid.getBoard(loc.getRow(), loc.getCol()).getName());
-				p2.addCharacter(c);
+				p1.addCharacter(c);
 				grid.getBoard(loc.getRow(), loc.getCol()).setBackground(Color.BLUE);
 				grid.getBoard(loc.getRow(), loc.getCol()).setToolTipText("Name: " + c.getName() +
 						"\nATK: " + c.getATK() + "\nHP:" + c.getHP());
 				
-				StatButtons stats = new StatButtons(c, p2);
+				StatButtons stats = new StatButtons(c, p1);
 				
 				stats.setTitle("Set Stats for "+ grid.getBoard(loc.getRow(), loc.getCol()).getName().substring(5, grid.getBoard(loc.getRow(), loc.getCol()).getName().length() - 4));
 

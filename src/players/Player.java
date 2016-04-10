@@ -17,8 +17,8 @@ public class Player {
 	
 	public Player(String name) {
 		this.name = name;
-		totalHP = 90;
-		totalATK = 30;
+		totalHP = 40;
+		totalATK = 15;
 		myTurn = false;
 		characters = new ArrayList<Character>();
 	}
@@ -84,5 +84,13 @@ public class Player {
 			totalSpeed += current.getSpeed();
 		
 		return totalSpeed;
+	}
+	
+	public int totalHP() {
+		return totalHP;
+	}
+	
+	public int totalATK() {
+		return totalATK;
 	}
 }
