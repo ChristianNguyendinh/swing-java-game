@@ -11,6 +11,8 @@ public class Player {
 	private int totalHP;
 	private int totalATK;
 	private boolean myTurn;
+	private int decrementATK;
+	private int decrementHP;
 	public ArrayList<Character> characters;
 	
 	public Player(String name) {
@@ -28,13 +30,33 @@ public class Player {
 		}
 		return false;
 	}
-	
-	public void incrementAtk(Character character) {
-		character.setStaticATK(character.getATK() + 1);
+	public void decrementAtk(Character character) {
+		if (decrementATK > 0) {
+			character.setStaticATK(character.getATK() - 1);
+			totalATK++;
+			decrementATK--;
+		}
 	}
-	
+	public void incrementAtk(Character character) {
+		if (totalATK > 0) {
+			character.setStaticATK(character.getATK() + 1);
+			totalATK--;
+			decrementATK++;
+		}
+	}
+	public void decrementHP(Character character) {
+		if (decrementHP > 0) {
+			character.setHP(character.getATK() - 1);
+			totalHP++;
+			decrementHP--;
+		}
+	}
 	public void incrementHP(Character character) {
-		character.setHP(character.getHP() + 1);
+		if (totalHP > 0) {
+			character.setHP(character.getHP() + 1);
+			totalHP--;
+			decrementHP++;
+		}
 	}
 	
 	public Character getCharacter(int i) {

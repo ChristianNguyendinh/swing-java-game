@@ -49,15 +49,13 @@ public class ButtonListener implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 
 		if (plusHP) {
-			
+			p.incrementHP(c);
 		} else if (minusHP) {
-
+			p.decrementHP(c);
 		} else if (plusATK) {
-
+			p.incrementAtk(c);
 		} else if (minusATK) {
-
-			System.exit(0);
-
+			p.decrementAtk(c);
 		}
 
 	}
