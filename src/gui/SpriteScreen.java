@@ -60,6 +60,7 @@ public class SpriteScreen extends JFrame {
 	}
 
 	private void setSpriteBoard() {
+		setSprite("pics/AverageJoe.jpg", 0, 0);
 		spriteBoard[0][0].setName("pics/AverageJoe.jpg");
 		setSprite("pics/BC Macho-Macho.jpg", 0, 1);
 		spriteBoard[0][1].setName("pics/BC Macho-Macho.jpg");
