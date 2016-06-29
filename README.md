@@ -18,4 +18,6 @@ attack dmg is calculated based on the classes you chose for characters
 
 classes have special abilities.. (?)
 
+last rebase test
+
 you lose if all your units die
