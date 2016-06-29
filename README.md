@@ -1,5 +1,7 @@
 # Welcome to MSPaintStone: Heroes of PaintCraft
 
+rebase test
+
 RULES:
 
 to start, run the SpriteScreen.java class.
